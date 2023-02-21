@@ -1,12 +1,15 @@
 module twitter_addr::main {
 
-    use std::string::{Self, String};
     use std::signer;
     use std::vector;
+    use std::string::String;
     use aptos_framework::timestamp;
     // use aptos_framework::event;
     // use aptos_framework::account;
     // use aptos_std::debug::print;
+
+    #[test_only]
+    use std::string;
 
     // Errors
     const ERR_ACCOUNT_EXISTS_ALREADY: u64 = 1;
