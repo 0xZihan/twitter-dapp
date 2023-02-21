@@ -1,4 +1,4 @@
-module twitter_addr::main {
+module twitter_addr::twitter {
 
     use std::signer;
     use std::vector;
@@ -16,6 +16,7 @@ module twitter_addr::main {
     const ERR_ACCOUNT_NOT_FOUND: u64 = 2;
     const ERR_HAVE_ALREADY_FOLLOWED: u64 = 3;
     const ERR_HAVE_NOT_FOLLOWED_YET: u64 = 4;
+    const ERR_CANT_FOLLOW_YOURSELF: u64 = 5;
 
     struct Posts has key {
         counter: u64,
@@ -142,6 +143,7 @@ module twitter_addr::main {
         // get the user address, and asset that user has an account
         let user_address = signer::address_of(user);
         assert!(account_exists(user_address), ERR_ACCOUNT_NOT_FOUND);
+        assert!(user_address != followee, ERR_CANT_FOLLOW_YOURSELF);
 
         // add to followees and followers
         add_followee(user_address, followee);
