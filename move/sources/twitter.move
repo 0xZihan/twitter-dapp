@@ -7,7 +7,6 @@ module twitter_addr::twitter {
     // use aptos_framework::event;
     // use aptos_framework::account;
     // use aptos_std::debug::print;
-
     #[test_only]
     use std::string;
 
