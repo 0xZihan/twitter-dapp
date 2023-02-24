@@ -1,4 +1,4 @@
-module twitter_addr::twitter {
+module twitter_addr::twitter_code_review {
 
     use std::signer;
     use std::vector;
